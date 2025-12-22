@@ -1,3 +1,3 @@
 image:
   repository: ghcr.io/org/my-app
-  imageTag: "initial"
+  imageTag: 56538b1
