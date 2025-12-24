@@ -1,6 +1,6 @@
 image:
   repository: weeraphat01/pipeline
-  imageTag: 99a0673
+  imageTag: 90ddd8f
 
 PORT: 3000
 NAMESPACE: microservices
