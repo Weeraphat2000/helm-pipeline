@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-gateway
+  namespace: {{ .Values.NAMESPACE }}
+  labels:
+    app: api-gateway
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: api-gateway
+  template:
+    metadata:
+      labels:
+        app: api-gateway
+    spec:
+      containers:
+        - name: api-gateway
+          image: {{ .Values.image.repository }}:{{ .Values.image.imageTag }}
+          imagePullPolicy: Always
+          ports:
+            - containerPort: {{ .Values.PORT }}
+          resources:
+            requests:
+              memory: '128Mi'
+              cpu: 100m
+            limits:
+              memory: 256Mi
+              cpu: 200m
+          readinessProbe:
+            httpGet:
+              path: '/'
+              port: {{ .Values.PORT }}
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: '/'
+              port: {{ .Values.PORT }}
+            initialDelaySeconds: 20
+            periodSeconds: 10
