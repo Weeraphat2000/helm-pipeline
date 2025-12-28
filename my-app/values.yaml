@@ -4,4 +4,4 @@ image:
 
 PORT: 3000
 NAMESPACE: microservices-production
-NODE_PORT: 32000
+NODE_PORT: 32001
