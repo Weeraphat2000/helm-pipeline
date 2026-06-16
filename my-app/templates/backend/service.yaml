@@ -6,10 +6,9 @@ metadata:
   labels:
     app: api-gateway
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: api-gateway
   ports:
     - port: {{ .Values.PORT }}
       targetPort: {{ .Values.PORT }}
-      nodePort: {{ .Values.NODE_PORT }}

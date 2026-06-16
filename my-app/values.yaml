@@ -4,4 +4,3 @@ image:
 
 PORT: 3000
 NAMESPACE: microservices
-NODE_PORT: 32000
